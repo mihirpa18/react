@@ -5,12 +5,10 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
 
-  // Handle input change
   const handleInputChange = (e) => {
     setNewTask(e.target.value);
   };
 
-  // Add new task
   const addTask = () => {
     if (newTask.trim()) {
       setTasks([...tasks, { text: newTask, completed: false }]);
@@ -24,7 +22,6 @@ function App() {
     }
   };
 
-  // Toggle task complete/incomplete
   const toggleTaskCompletion = (index) => {
     const updatedTasks = tasks.map((task, i) =>
       i === index ? { ...task, completed: !task.completed } : task
@@ -32,7 +29,6 @@ function App() {
     setTasks(updatedTasks);
   };
 
-  // Delete a task
   const deleteTask = (index) => {
     const updatedTasks = tasks.filter((task, i) => i !== index);
     setTasks(updatedTasks);
